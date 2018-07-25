@@ -18,8 +18,36 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        template = jinja_enviornment.get_template('index.html') #specify which HTML file to serve
+        self.response.out.write(template.render())
+        #sends the variables to the html as a parameter
+
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_enviornment.get_template('Aboutpage.html') #specify which HTML file to serve
+        self.response.out.write(template.render())
+        #sends the variables to the html as a parameter
+class FindJobsHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_enviornment.get_template('FindJobs.html')
+        self.response.out.write(template.render())
+
+class JobPostingHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_enviornment.get_template('JobPosting.html')
+        self.response.out.write(template.render())
+
+class HelpPageHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_enviornment.get_template('HelpPage.html')
+        self.response.out.write(template.render())
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/About', AboutHandler),
+    ('/FindJobs', FindJobsHandler),
+    ('/PostJobs', JobPostingHandler),
+    ('/Help', HelpPageHandler),
+
 ], debug=True)
