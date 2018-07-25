@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Task SF: Job Posting</title>
+  </head>
+  <body>
+    <header>
+      <a href="homepage.html"><img src="images/header.png" alt="header" width=100%></a>
+    </header>
+
+    <h1>Post a Job</h1>
+    Job Title: <input type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"><br>
+    <br>
+    Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"><br>
+    <br>
+    Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"><br>
+    <br>
+    Wage: <input type="text" id="Wage" name="wage" value="ex. 15$/Hour"><br>
+    <br>
+    Hours: <input type="text" id="hours" name="hours" value="ex. 4 Hours/Week"><br>
+    <br>
+    Employer Name: <input type="text" id= "ename" name="ename" value="Your Name Here"><br>
+    <br>
+    Company Name (Optional): <input type="text" id="cname" name="cname" value="Company Name"><br>
+    <br>
+    <form>Neighborhood:<select id="Neighborhood">
+      <option>Bayview</option>
+      <option>Castro/Upper Market</option>
+      <option>Crocker Amazon</option>
+      <option>Diamond Heights</option>
+      <option>Downtown/Civic Center</option>
+      <option>Excelsior</option>
+      <option>Financial District</option>
+      <option>Haight Ashbury</option>
+      <option>Inner Richmond</option>
+      <option>Inner Sunset</option>
+      <option>Lakeshore</option>
+      <option>Marina</option>
+      <option>Mission</option>
+      <option>Nob Hill</option>
+      <option>Noe Valley</option>
+      <option>North Beach</option>
+      <option>Ocean View</option>
+      <option>Outer Mission</option>
+      <option>Outer Richmond</option>
+      <option>Outer Sunset</option>
+      <option>Pacific Heights</option>
+      <option>Parkside</option>
+      <option>Portrero Hill</option>
+      <option>Presidio</option>
+      <option>Presidio Heights</option>
+      <option>Russian Hill</option>
+      <option>Sea Cliff</option>
+      <option>South of Market</option>
+      <option>Treasure Island</option>
+      <option>Twin Peaks</option>
+      <option>Visitacion Valley</option>
+    </select></form>
+    <br>
+      <form>How would you like to be contacted:
+        <select id="contactby">
+          <option>Select</option>
+          <option value="Email">Email</option>
+          <option value="Call">Phone (Call)</option>
+          <option value="Text">Phone (Text)</option>
+          <option value="Both">Either</option>
+        </select><input type="button" onclick="getOption()" value="Submit Choice">
+      </form>
+    </div>
+    <div id="contactbyconfirmation"></div>
+    <script>
+    function getOption(option){
+    var contactby = document.getElementById("contactby").value;
+      if (contactby == "Email") {
+        document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+      }
+      if (contactby == "Call") {
+        document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+      }
+      if (contactby == "Text") {
+        document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+      }
+      if (contactby == "Both") {
+        document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
+      }
+      if (contactby == "Select") {
+        document.getElementById("contactbyconfirmation").innerHTML = ("");
+      }
+    }
+    </script>
+    <br>
+    Email: <input type="text" name="email" value="ex.John@example.com"><br>
+    <br>
+    Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
+    <br>
+    Please review spealling and info before submitting:
+    <br>
+    <!-- <button type= "submit">Submit</button> -->
+    <!-- <button type= "button">Agree to Terms and Conditions</button> -->
+    <form action="jobpostconfirm.html">
+      <input type="submit" value="Post Job">
+      <br>
+    </form>
+  <footer>
+      <ul>
+        <li><a href="AboutPage.html">About</a></li>
+        <li><a href="PrivacyPage.html">Privacy</a></li>
+        <li><a href="HelpPage.html">Help</a></li>
+      </ul>
+  </footer>
+
+  </body>
+
+</html>

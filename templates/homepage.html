@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>TaskSF</title>
+
+    <style>
+
+    .row {
+        display: flex;
+    }
+
+    /* Create two columns that sits next to each other */
+    .column {
+        flex: 50%;
+    }
+
+    .text {
+      color: white;
+      font-size: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -50%);
+      opacity: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: .8;
+      transition: .3s ease;
+      background-color: #ff9100;
+    }
+
+
+
+    .container {
+      position: relative;
+      width: 100%;
+
+    }
+
+
+    .image {
+      display: block;
+      width: 50%;
+      height: auto;
+      padding: 10px
+    }
+
+    .container:hover .overlay {
+      opacity: .5;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <a href="homepage.html"><img src="images/header.png" alt="header" width=100%></a>
+    </header>
+
+    <h1>Home</h1>
+
+
+  <div class="row">
+
+    <!-- puts in orange images -->
+    <div class="column, image">
+        <div class="container">
+        <a href="loginpage.html"><img src="images/carsPic.jpg" alt="Post a Job"  style="width:100%">
+          <!-- Creates the overlay color -->
+        <div class="overlay"> </div>
+          <!-- Text above image -->
+        <div class="text">Post a Job</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="column, image">
+      <div class="container">
+        <a href="FindJobs.html"><img src="images/housesPic.jpg" alt="Find a Job" width=40% style="width:100%">
+          <!-- Creates the overlay color -->
+          <div class="overlay"></div>
+          <!-- Text above image -->
+          <div class="text">Find a Job</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
+
+    <footer>
+        <ul>
+          <li><a href="AboutPage.html">About</a></li>
+          <li><a href="PrivacyPage.html">Privacy</a></li>
+          <li><a href="HelpPage.html">Help</a></li>
+        </ul>
+    </footer>
+
+  </body>
+</html>

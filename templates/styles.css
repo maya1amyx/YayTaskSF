@@ -1,0 +1,64 @@
+
+
+/* Footer styles */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    align:center;
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+/* footer hover option */
+li a:hover {
+    color: grey;
+}
+
+/* job entry page hover color */
+.JobEntry:hover {
+    background-color: #ffe5c4;
+}
+
+/* styling for all bodies of text */
+p {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* privacy page pic */
+.privacy{
+  width: 15%;
+  padding: 10px;
+  float:right;
+}
+
+.JobEntry{
+  text-align: center;
+  font-size: 20px;
+  color:black;
+  padding:20px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  margin:5px;
+  word-wrap:normal;
+  background-color: #e8e8e8;
+}
+
+a:link{
+  text-decoration: none;
+}
