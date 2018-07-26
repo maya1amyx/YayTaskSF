@@ -42,15 +42,15 @@ class HelpPageHandler(webapp2.RequestHandler):
         template = jinja_enviornment.get_template('HelpPage.html')
         self.response.out.write(template.render())
 
-class SignUpHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_enviornment.get_template('SignUp.html')
-        self.response.out.write(template.render())
-
-class LogInHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_enviornment.get_template('loginpage.html')
-        self.response.out.write(template.render())
+# class SignUpHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_enviornment.get_template('SignUp.html')
+#         self.response.out.write(template.render())
+#
+# class LogInHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_enviornment.get_template('loginpage.html')
+#         self.response.out.write(template.render())
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
