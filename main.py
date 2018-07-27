@@ -66,11 +66,17 @@ class SignUpHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('SignUp.html')
         self.response.out.write(template.render())
+
+
 class JobPostConfirmHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('jobpostconfirm.html')
-        self.response.out.write(template.render())
+        title = self.request.get('jTitle') #User input is the name of the variable from our aout html file
+        template = jinja_environment.get_template('JobPostConfirm.html')
+        self.response.out.write(template.render(title = title))
 
+
+
+#########################################################################
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/About', AboutHandler),
@@ -82,6 +88,6 @@ app = webapp2.WSGIApplication([
     ('/FindJobs', FindJobsHandler),
     ('/MoreInfo', MoreInfoHandler),
     ('/SignUp', SignUpHandler),
-    ('/JobPostConfirm', JobPostConfirmHandler),
+    ('/JobPostConfirm', JobPostConfirmHandler)
 
 ], debug=True)

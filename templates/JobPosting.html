@@ -11,8 +11,14 @@
       <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
 
+
+    <form action="/JobPostConfirm" method="get">
+
     <h1>Post a Job</h1>
-    Job Title: <input action="/jobpostconfirm?data=jtitle" method="post" type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"><br>
+
+    Job Title: <input type="text" id="j/title" name="jTitle" value="ex.Dog Walker"><br>
+
+
     <br>
     Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"><br>
     <br>
@@ -96,14 +102,15 @@
     <br>
     Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
     <br>
-    Please review spealling and info before submitting:
+    Please review speelling and info before submitting:
     <br>
     <!-- <button type= "submit">Submit</button> -->
     <!-- <button type= "button">Agree to Terms and Conditions</button> -->
-    <form action='/JobPostConfirm'>
-      <input type="submit" value="Post Job">
+    <!-- <form action='/JobPostConfirm1'> -->
+      <input type="submit" value="PostJob">
       <br>
     </form>
+
   <footer>
       <ul>
         <li><a href="/About">About</a></li>
