@@ -2,7 +2,7 @@
   font-family:'Open Sans', sans-serif;
   background-color: orange;
   color: White;
-  text-align: center;
+  text-align: left;
 }
 
 button {
@@ -19,4 +19,16 @@ button {
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
+}
+
+#type {
+  font-family:'Open Sans', sans-serif;
+  text-align: left;
+  font-size: 20px;
+}
+
+#check {
+  font-family:'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 15px;
 }

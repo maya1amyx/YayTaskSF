@@ -56,14 +56,14 @@
       <option>Twin Peaks</option>
       <option>Visitacion Valley</option>
     </select></form></p>
-    <p id="test"><form>How would you like to be contacted:
+    <form style="font-family:'Open Sans', sans-serif;font-size: 20px;">How would you like to be contacted:
         <select id="contactby">
           <option>Select</option>
           <option value="Email">Email</option>
           <option value="Call">Phone (Call)</option>
           <option value="Text">Phone (Text)</option>
           <option value="Both">Either</option>
-        </select><input type="button" onclick="getOption()" value="Submit Choice">
+        <br></select><input type="button" onclick="getOption()" value="Submit Choice"><br>
         <div id="contactbyconfirmation"></div></form>
         <script>
           function getOption(option){
@@ -84,10 +84,10 @@
               document.getElementById("contactbyconfirmation").innerHTML = ("");
             }
           }
-        </script></p>
+        </script>
     <p id="type">Email: <input type="text" name="email" value="ex.John@example.com"></p>
     <p id="type">Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"></p>
-    <p id="test">Please review spelling and info before submitting:<p>
+    <p id="check">Please review spelling and info before submitting:<p>
 <!-- inputs -->
 
     <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
