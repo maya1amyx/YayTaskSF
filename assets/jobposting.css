@@ -2,7 +2,8 @@
   font-family:'Open Sans', sans-serif;
   background-color: orange;
   color: White;
-  text-align: left;
+  text-align: center;
+  padding: 10px;
 }
 
 button {
@@ -31,4 +32,8 @@ button:hover {
   font-family:'Open Sans', sans-serif;
   text-align: center;
   font-size: 15px;
+}
+form{
+  padding: 20px;
+  background-color: #e2e2e2;
 }
