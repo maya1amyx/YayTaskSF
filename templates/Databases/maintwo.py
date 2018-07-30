@@ -80,8 +80,6 @@ class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
         template = jinja_environment.get_template('JobPostConfirm.html')
         self.response.out.write(template.render(title=title, disc=disc, wage=wage, hours=hours,))
 
-
-
 #########################################################################
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
