@@ -16,7 +16,7 @@
     <form action="/JobPostConfirm" method="post">
 <!-- inputs -->
     <h1 id= "header">Post a Job:</h1>
-    <p id="type">Job Title: <input type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"></p>
+    <p id="type">Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"></p>
     <p id="type">Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"></p>
     <p id="type">Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"></p>
     <p id="type">Wage: <input type="text" id="Wage" name="wage" value="ex. 15$/Hour"></p>
@@ -55,8 +55,8 @@
       <option>Treasure Island</option>
       <option>Twin Peaks</option>
       <option>Visitacion Valley</option>
-    </select></form></p>
-    <p id="test"><form>How would you like to be contacted:
+    </select></form</p>
+      <p id="test">How would you like to be contacted:
         <select id="contactby">
           <option>Select</option>
           <option value="Email">Email</option>
@@ -64,7 +64,7 @@
           <option value="Text">Phone (Text)</option>
           <option value="Both">Either</option>
         </select><input type="button" onclick="getOption()" value="Submit Choice">
-        <div id="contactbyconfirmation"></div></form>
+        <div id="contactbyconfirmation"></div>
         <script>
           function getOption(option){
           var contactby = document.getElementById("contactby").value;
@@ -84,7 +84,7 @@
               document.getElementById("contactbyconfirmation").innerHTML = ("");
             }
           }
-        </script></p>
+          </script></p>
     <p id="type">Email: <input type="text" name="email" value="ex.John@example.com"></p>
     <p id="type">Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"></p>
     <p id="test">Please review spelling and info before submitting:<p>
