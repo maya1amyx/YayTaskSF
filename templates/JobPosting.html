@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/SignUp.css">
-    <link rel="stylesheet" href="../assets/jobposting.css">
+    <link rel="stylesheet" type= "text/css" href="../assets/styles.css">
+    <link rel="stylesheet" type= "text/css" href="../assets/SignUp.css">
+    <link rel="stylesheet" type= "text/css" href="../assets/jobposting.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <title>Task SF: Job Posting</title>
   </head>
@@ -15,7 +16,7 @@
 
     <form action="/JobPostConfirm?title=jtitle&disc=jdisc&wage=wage&hours=hours&ename=ename&cname=cname" method="post">
 
-    <h1>Post a Job</h1>
+    <h1 id= "header">Post a Job:</h1>
 
     Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"><br>
 
@@ -103,7 +104,7 @@
     <br>
     Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
     <br>
-    Please review speelling and info before submitting:
+    Please review spelling and info before submitting:
     <br>
 
     <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>

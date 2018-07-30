@@ -9,9 +9,18 @@
 } */
 
 /* Set a style for all buttons */
-h1{
-  /* border:1px solid red; */
+h1 {
+  font-family:'Open Sans', sans-serif;
+  background-color: orange;
 }
+
+#header {
+  font-family:'Open Sans', sans-serif;
+  background-color: orange;
+  color: White;
+  text-align: center;
+}
+
 button {
     background-color: orange;
     color: white;
