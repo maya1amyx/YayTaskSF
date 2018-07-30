@@ -54,9 +54,12 @@ class SignUpHandler(webapp2.RequestHandler):
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
     def get(self):
-        title = self.request.get('jTitle') #User input is the name of the variable from our aout html file
+        jtitle = self.request.get('jtitle')
+        jdisc = self.request.get('jdisc')
+        wage = self.request.get('wage')
+        #User input is the name of the variable from our aout html file
         template = jinja_environment.get_template('JobPostConfirm.html')
-        self.response.out.write(template.render(title = title))
+        self.response.out.write(template.render(jtitle=jtitle, jdisc=jdisc, wage=wage))
 
 
 
