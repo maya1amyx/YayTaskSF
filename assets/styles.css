@@ -72,3 +72,9 @@ footer{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
+
+.body_confirm{
+  background-color: #e8e8e8;
+  margin: 20px;
+  padding:10px;
+}
