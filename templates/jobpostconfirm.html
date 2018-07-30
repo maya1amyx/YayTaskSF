@@ -9,23 +9,28 @@
       <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
 
-<h1>Your Job Listing has been posted!</h1>
-<form action='/FindJobs'>
-  <input type="submit" value="Go to Listings">
-  <br>
-</form>
-
-    <h1> THIS IS JOBPOSTCONFIRM </h1>
-
-    <p>Job Title: {{title}}</p>
-    <p>Job Description: {{disc}}</p>
-    <p>Wage: {{wage}}</p>
-    <p>Hours:{{hours}}</p>
-    <p>Employer Name: {{eName}}</p>
-    <p>Company Name (optional): {{cName}}</p>
+    <h1>Your Job Listing has been posted!</h1>
 
 
 
+    <!-- <h1> THIS IS JOBPOSTCONFIRM </h1> -->
+
+    <div class="body_confirm">
+
+      <p>Job Title: {{title}}</p>
+      <p>Job Type: {{type}}</p>
+
+      <p>Job Description: {{disc}}</p>
+      <p>Wage: {{wage}}</p>
+      <p>Hours:{{hours}}</p>
+      <p>Employer Name: {{eName}}</p>
+      <p>Company Name (optional): {{cName}}</p>
+
+    </div>
+
+    <button class="Edit_Post"> <a class="Edit_Post_Text" href="/FindJobs">Edit Post</a> </button>
+
+    <button class="Go_To_Listings"> <a class="Go_To_Listings_Text" href="/FindJobs">Go to Listings</a> </button>
 
 <footer>
     <ul>

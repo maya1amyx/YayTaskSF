@@ -73,6 +73,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
         # title = ndb.StringProperty()
         # title_key = title.put()
         # returned_title = title_key.get()
+        type = self.request.get('type')
 
         disc = self.request.get('jdisc')
         wage = self.request.get('jwage')
@@ -80,7 +81,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
 
         #User input is the name of the variable from our aout html file
         template = jinja_environment.get_template('JobPostConfirm.html')
-        self.response.out.write(template.render(title=title))
+        self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
 
 
 

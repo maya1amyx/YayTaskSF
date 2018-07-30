@@ -15,9 +15,11 @@
     </header>
     <h1 id= "header">Post a Job:</h1>
 
-    <form action="/JobPostConfirm?title=jtitle" method="get">
+
+    <div class="form_container">
+    <form action="/JobPostConfirm" method="get">
 <!-- inputs -->
-    <p id="type">Job Title: <textarea type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"></textarea></p>
+    <p id="type">Job Title: <input type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"></p>
     <p id="type">Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"></p>
     <p id="type">Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"></p>
     <p id="type">Wage: <input type="text" id="Wage" name="wage" value="ex. 15$/Hour"></p>

@@ -72,3 +72,42 @@ footer{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
+
+.body_confirm{
+  background-color: #e8e8e8;
+  margin: 20px;
+  padding:10px;
+}
+
+.Edit_Post{
+  background-color: orange;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  align: right;
+}
+
+.Edit_Post_Text{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.Go_To_Listings{
+  background-color: orange;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  align: right;
+}
+
+.Go_To_Listings_Text{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px
