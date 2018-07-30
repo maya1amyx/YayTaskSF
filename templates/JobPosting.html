@@ -18,6 +18,7 @@
 
     <h1 id= "header">Post a Job:</h1>
 
+<<<<<<< HEAD
     <p id="type">Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"></p>
     <p id="type">Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"></p>
     <p id="type">Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"></p>
@@ -59,14 +60,76 @@
       <option>Visitacion Valley</option>
     </select></form></p>
     <p id="test"><form>How would you like to be contacted:
+=======
+
+    <form action="/JobPostConfirm?title=jtitle" method="get">
+      Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"><br></br>
+
+      Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"><br></br>
+
+      Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"><br></br>
+
+      Wage: <input type="text" id="Wage" name="jwage" value="ex. 15$/Hour"><br></br>
+
+      Hours: <input type="text" id="hours" name="jhours" value="ex. 4 Hours/Week"><br></br>
+
+      Employer Name: <input type="text" id= "ename" name="ename" value="Your Name Here"><br></br>
+
+      Company Name (Optional): <input type="text" id="cname" name="cname" value="Company Name"><br></br>
+
+      <form>Neighborhood:<select id="Neighborhood">
+        <option>Bayview</option>
+        <option>Castro/Upper Market</option>
+        <option>Crocker Amazon</option>
+        <option>Diamond Heights</option>
+        <option>Downtown/Civic Center</option>
+        <option>Excelsior</option>
+        <option>Financial District</option>
+        <option>Haight Ashbury</option>
+        <option>Inner Richmond</option>
+        <option>Inner Sunset</option>
+        <option>Lakeshore</option>
+        <option>Marina</option>
+        <option>Mission</option>
+        <option>Nob Hill</option>
+        <option>Noe Valley</option>
+        <option>North Beach</option>
+        <option>Ocean View</option>
+        <option>Outer Mission</option>
+        <option>Outer Richmond</option>
+        <option>Outer Sunset</option>
+        <option>Pacific Heights</option>
+        <option>Parkside</option>
+        <option>Portrero Hill</option>
+        <option>Presidio</option>
+        <option>Presidio Heights</option>
+        <option>Russian Hill</option>
+        <option>Sea Cliff</option>
+        <option>South of Market</option>
+        <option>Treasure Island</option>
+        <option>Twin Peaks</option>
+        <option>Visitacion Valley</option>
+      </select></form>
+
+      <br></br>
+
+      <form>How would you like to be contacted:
+>>>>>>> e568d83c8c114607e3f44c2cc099a0a2b72c1455
         <select id="contactby">
           <option>Select</option>
           <option value="Email">Email</option>
           <option value="Call">Phone (Call)</option>
           <option value="Text">Phone (Text)</option>
           <option value="Both">Either</option>
+<<<<<<< HEAD
         </select><input type="button" onclick="getOption()" value="Submit Choice"></form>
         <div id="contactbyconfirmation"></div>
+=======
+        </select><input type="button" onclick="getOption()" value="Submit Choice">
+      </form>
+
+      <!-- <div id="contactbyconfirmation"></div> -->
+>>>>>>> e568d83c8c114607e3f44c2cc099a0a2b72c1455
       <script>
         function getOption(option){
         var contactby = document.getElementById("contactby").value;
@@ -86,16 +149,28 @@
             document.getElementById("contactbyconfirmation").innerHTML = ("");
           }
         }
+<<<<<<< HEAD
     </script></p>
     <p id="type">Email: <input type="text" name="email" value="ex.John@example.com"></p>
     <p id="type">Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"></p>
     <p id="test">Please review spelling and info before submitting:<p>
 
+=======
+        </script>
+    <br>
+    Email: <input type="text" name="email" value="ex.John@example.com"><br>
+    <br>
+    Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
+    <br>
+    Please review spelling and info before submitting:
+    <br>
+>>>>>>> e568d83c8c114607e3f44c2cc099a0a2b72c1455
 
     <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
 
     <br>
     </form>
+>>>>>>> 6bfa17462f982c228be110b527253530424b1c16
 
   <footer>
       <ul>
