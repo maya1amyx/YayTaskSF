@@ -53,11 +53,11 @@ class SignUpHandler(webapp2.RequestHandler):
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
-    def post(self):
+    def get(self):
         title = self.request.get('jtitle')
-        title = ndb.StringProperty()
-        title_key = title.put()
-        returned_title = title_key.get()
+        # title = ndb.StringProperty()
+        # title_key = title.put()
+        # returned_title = title_key.get()
 
         disc = self.request.get('jdisc')
         wage = self.request.get('jwage')
