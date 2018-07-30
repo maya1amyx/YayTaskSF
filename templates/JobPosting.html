@@ -13,11 +13,9 @@
     <header>
       <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
-
     <form action="/JobPostConfirm?title=jtitle&disc=jdisc&wage=wage&hours=hours&ename=ename&cname=cname" method="post">
-
+<!-- inputs -->
     <h1 id= "header">Post a Job:</h1>
-
     <p id="type">Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"></p>
     <p id="type">Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"></p>
     <p id="type">Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"></p>
@@ -58,71 +56,43 @@
       <option>Twin Peaks</option>
       <option>Visitacion Valley</option>
     </select></form></p>
-    <p id="test"><form>How would you like to be contacted:
-    <form action="/JobPostConfirm?title=jtitle" method="get">
-
-
-      <form>How would you like to be contacted:
+      <p id="test"><form>How would you like to be contacted:
         <select id="contactby">
           <option>Select</option>
           <option value="Email">Email</option>
           <option value="Call">Phone (Call)</option>
           <option value="Text">Phone (Text)</option>
           <option value="Both">Either</option>
-        </select><input type="button" onclick="getOption()" value="Submit Choice"></form>
-        <div id="contactbyconfirmation"></div>
         </select><input type="button" onclick="getOption()" value="Submit Choice">
+        <div id="contactbyconfirmation"></div>
       </form>
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-=======
-      <!-- <div id="contactbyconfirmation"></div> -->
->>>>>>> e568d83c8c114607e3f44c2cc099a0a2b72c1455
->>>>>>> 6087c22cdbe0bcbc3e3f5d9315b4482e99cdc0ca
->>>>>>> a5af26edb14ea3059685062dfbb1d77cc0a2d61c
-      <script>
-        function getOption(option){
-        var contactby = document.getElementById("contactby").value;
-          if (contactby == "Email") {
-            document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+        <script>
+          function getOption(option){
+          var contactby = document.getElementById("contactby").value;
+            if (contactby == "Email") {
+              document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+            }
+            if (contactby == "Call") {
+              document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+            }
+            if (contactby == "Text") {
+              document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+            }
+            if (contactby == "Both") {
+              document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
+            }
+            if (contactby == "Select") {
+              document.getElementById("contactbyconfirmation").innerHTML = ("");
+            }
           }
-          if (contactby == "Call") {
-            document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-          }
-          if (contactby == "Text") {
-            document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-          }
-          if (contactby == "Both") {
-            document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
-          }
-          if (contactby == "Select") {
-            document.getElementById("contactbyconfirmation").innerHTML = ("");
-          }
-        }
-
-    </script></p>
+          </script></p>
     <p id="type">Email: <input type="text" name="email" value="ex.John@example.com"></p>
     <p id="type">Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"></p>
     <p id="test">Please review spelling and info before submitting:<p>
-
-
-        </script>
-    <br>
-    Email: <input type="text" name="email" value="ex.John@example.com"><br>
-    <br>
-    Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
-    <br>
-    Please review spelling and info before submitting:
-    <br>
-
+<!-- inputs -->
 
     <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
-
-    <br>
     </form>
-
   <footer>
       <ul>
         <li><a href="/About">About</a></li>
