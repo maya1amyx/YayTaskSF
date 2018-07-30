@@ -1,15 +1,28 @@
 #webapp2 allows the pages to be opened in the browser. Jinja lets us use html
 import webapp2, jinja2, os
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
 template_directory = os.path.join(os.path.dirname(__file__), 'templates') #telling where templates are
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_directory)) #creating jinja objects
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
+        currentUser = users.get_current_user()
+
+        if currentUser:  #if current user exists
+            nickname = currentUser.nickname()  #email address before @
+
+            url = users.create_logout_url('/')
+            url_text = "logout"
+        else:
+            url = users.create_login_url('/')
+            url_text = "login"
+
         template = jinja_environment.get_template('index.html') #specify which HTML file to serve
-        self.response.out.write(template.render())
-        #sends the variables to the html as a parameter
+        self.response.out.write(template.render(url = url,
+        url_text = url_text))
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
