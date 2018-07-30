@@ -49,7 +49,7 @@ class SignUpHandler(webapp2.RequestHandler):
 
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
-        title = self.request.get('jtitle')
+        #title = self.request.get('jtitle')
 
         template = jinja_environment.get_template('JobPosting.html')
         self.response.out.write(template.render(title=title))
