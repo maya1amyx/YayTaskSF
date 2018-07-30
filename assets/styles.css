@@ -62,3 +62,8 @@ p {
 a:link{
   text-decoration: none;
 }
+
+#homepage {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
