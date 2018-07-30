@@ -36,4 +36,6 @@ button:hover {
 form{
   padding: 20px;
   background-color: #e2e2e2;
+  width: 75%;
+  align: center;
 }
