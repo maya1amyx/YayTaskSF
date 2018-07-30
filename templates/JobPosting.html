@@ -13,60 +13,59 @@
       <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
 
-    <form action="/JobPostConfirm?title=jtitle&disc=jdisc&wage=wage&hours=hours&ename=ename&cname=cname" method="post">
-
     <h1>Post a Job</h1>
 
-    Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"><br>
+    <form action="/JobPostConfirm?title=jtitle" method="get">
+      Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"><br></br>
 
+      Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"><br></br>
 
-    <br>
-    Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"><br>
-    <br>
-    Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"><br>
-    <br>
-    Wage: <input type="text" id="Wage" name="wage" value="ex. 15$/Hour"><br>
-    <br>
-    Hours: <input type="text" id="hours" name="hours" value="ex. 4 Hours/Week"><br>
-    <br>
-    Employer Name: <input type="text" id= "ename" name="ename" value="Your Name Here"><br>
-    <br>
-    Company Name (Optional): <input type="text" id="cname" name="cname" value="Company Name"><br>
-    <br>
-    <form>Neighborhood:<select id="Neighborhood">
-      <option>Bayview</option>
-      <option>Castro/Upper Market</option>
-      <option>Crocker Amazon</option>
-      <option>Diamond Heights</option>
-      <option>Downtown/Civic Center</option>
-      <option>Excelsior</option>
-      <option>Financial District</option>
-      <option>Haight Ashbury</option>
-      <option>Inner Richmond</option>
-      <option>Inner Sunset</option>
-      <option>Lakeshore</option>
-      <option>Marina</option>
-      <option>Mission</option>
-      <option>Nob Hill</option>
-      <option>Noe Valley</option>
-      <option>North Beach</option>
-      <option>Ocean View</option>
-      <option>Outer Mission</option>
-      <option>Outer Richmond</option>
-      <option>Outer Sunset</option>
-      <option>Pacific Heights</option>
-      <option>Parkside</option>
-      <option>Portrero Hill</option>
-      <option>Presidio</option>
-      <option>Presidio Heights</option>
-      <option>Russian Hill</option>
-      <option>Sea Cliff</option>
-      <option>South of Market</option>
-      <option>Treasure Island</option>
-      <option>Twin Peaks</option>
-      <option>Visitacion Valley</option>
-    </select></form>
-    <br>
+      Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"><br></br>
+
+      Wage: <input type="text" id="Wage" name="jwage" value="ex. 15$/Hour"><br></br>
+
+      Hours: <input type="text" id="hours" name="jhours" value="ex. 4 Hours/Week"><br></br>
+
+      Employer Name: <input type="text" id= "ename" name="ename" value="Your Name Here"><br></br>
+
+      Company Name (Optional): <input type="text" id="cname" name="cname" value="Company Name"><br></br>
+
+      <form>Neighborhood:<select id="Neighborhood">
+        <option>Bayview</option>
+        <option>Castro/Upper Market</option>
+        <option>Crocker Amazon</option>
+        <option>Diamond Heights</option>
+        <option>Downtown/Civic Center</option>
+        <option>Excelsior</option>
+        <option>Financial District</option>
+        <option>Haight Ashbury</option>
+        <option>Inner Richmond</option>
+        <option>Inner Sunset</option>
+        <option>Lakeshore</option>
+        <option>Marina</option>
+        <option>Mission</option>
+        <option>Nob Hill</option>
+        <option>Noe Valley</option>
+        <option>North Beach</option>
+        <option>Ocean View</option>
+        <option>Outer Mission</option>
+        <option>Outer Richmond</option>
+        <option>Outer Sunset</option>
+        <option>Pacific Heights</option>
+        <option>Parkside</option>
+        <option>Portrero Hill</option>
+        <option>Presidio</option>
+        <option>Presidio Heights</option>
+        <option>Russian Hill</option>
+        <option>Sea Cliff</option>
+        <option>South of Market</option>
+        <option>Treasure Island</option>
+        <option>Twin Peaks</option>
+        <option>Visitacion Valley</option>
+      </select></form>
+
+      <br></br>
+
       <form>How would you like to be contacted:
         <select id="contactby">
           <option>Select</option>
@@ -76,40 +75,40 @@
           <option value="Both">Either</option>
         </select><input type="button" onclick="getOption()" value="Submit Choice">
       </form>
-    </div>
-    <div id="contactbyconfirmation"></div>
-    <script>
-      function getOption(option){
-      var contactby = document.getElementById("contactby").value;
-        if (contactby == "Email") {
-          document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
-        }
-        if (contactby == "Call") {
-          document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-        }
-        if (contactby == "Text") {
-          document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-        }
-        if (contactby == "Both") {
-          document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
-        }
-        if (contactby == "Select") {
-          document.getElementById("contactbyconfirmation").innerHTML = ("");
-        }
-      }
-    </script>
-    <br>
-    Email: <input type="text" name="email" value="ex.John@example.com"><br>
-    <br>
-    Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br>
-    <br>
-    Please review speelling and info before submitting:
-    <br>
 
-    <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
+      <!-- <div id="contactbyconfirmation"></div> -->
+      <script>
+        function getOption(option){
+        var contactby = document.getElementById("contactby").value;
+          if (contactby == "Email") {
+            document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+          }
+          if (contactby == "Call") {
+            document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+          }
+          if (contactby == "Text") {
+            document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+          }
+          if (contactby == "Both") {
+            document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
+          }
+          if (contactby == "Select") {
+            document.getElementById("contactbyconfirmation").innerHTML = ("");
+          }
+        }
+      </script>
 
-    <br>
-    </form>
+      <br>
+      Email: <input type="text" name="email" value="ex.John@example.com"><br></br>
+
+      Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"><br></br>
+
+      Please review spelling and info before submitting:
+      <br>
+      <center><button type="submit" > <a href="/JobPostConfirm?title=jtitle">Submit</a> </button></center>
+
+      <br></br>
+      </form>
 
   <footer>
       <ul>
