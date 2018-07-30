@@ -9,15 +9,20 @@ jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('index.html') #specify which HTML file to serve
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(number = anotherNumber, list = exampleList, url = url,
+        url_text = url_text))
         #sends the variables to the html as a parameter
 
         currentUser = users.get_current_user()
 
         if currentUser:  #if current user exists
             nickname = currentUser.nickname()  #email address before @
+
+            url = users.create_logout_url('/')
+            url_text = "logout"
         else:
             url = users.create_login_url('/')
+            url_text = "login"
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
