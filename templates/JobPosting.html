@@ -11,12 +11,11 @@
       <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
 
-
-    <form action="/JobPostConfirm" method="get">
+    <form action="/JobPostConfirm?title=jtitle&disc=jdisc&wage=wage&hours=hours&ename=ename&cname=cname" method="post">
 
     <h1>Post a Job</h1>
 
-    Job Title: <input type="text" id="j/title" name="jTitle" value="ex.Dog Walker"><br>
+    Job Title: <input type="text" id="j/title" name="jtitle" value="ex.Dog Walker"><br>
 
 
     <br>
@@ -78,24 +77,24 @@
     </div>
     <div id="contactbyconfirmation"></div>
     <script>
-    function getOption(option){
-    var contactby = document.getElementById("contactby").value;
-      if (contactby == "Email") {
-        document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+      function getOption(option){
+      var contactby = document.getElementById("contactby").value;
+        if (contactby == "Email") {
+          document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+        }
+        if (contactby == "Call") {
+          document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+        }
+        if (contactby == "Text") {
+          document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+        }
+        if (contactby == "Both") {
+          document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
+        }
+        if (contactby == "Select") {
+          document.getElementById("contactbyconfirmation").innerHTML = ("");
+        }
       }
-      if (contactby == "Call") {
-        document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-      }
-      if (contactby == "Text") {
-        document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
-      }
-      if (contactby == "Both") {
-        document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
-      }
-      if (contactby == "Select") {
-        document.getElementById("contactbyconfirmation").innerHTML = ("");
-      }
-    }
     </script>
     <br>
     Email: <input type="text" name="email" value="ex.John@example.com"><br>
@@ -104,11 +103,10 @@
     <br>
     Please review speelling and info before submitting:
     <br>
-    <!-- <button type= "submit">Submit</button> -->
-    <!-- <button type= "button">Agree to Terms and Conditions</button> -->
-    <!-- <form action='/JobPostConfirm1'> -->
-      <input type="submit" value="PostJob">
-      <br>
+
+    <center><button type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
+
+    <br>
     </form>
 
   <footer>
