@@ -1,20 +1,13 @@
-/* Full-width inputs*/ /
-/* input[type=text], input[type=password] {
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-} */
-
-/* Set a style for all buttons */
-h1{
-  /* border:1px solid red; */
+#header {
+  font-family:'Open Sans', sans-serif;
+  background-color: orange;
+  color: White;
+  text-align: center;
 }
+
 button {
     background-color: orange;
-    color: white;
+    color: White;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
