@@ -21,10 +21,6 @@ class FindJobsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render())
 
-class JobPostHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render())
 
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -51,6 +47,12 @@ class SignUpHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('SignUp.html')
         self.response.out.write(template.render())
 
+class JobPostHandler(webapp2.RequestHandler):
+    def get(self):
+        title = self.request.get('jtitle')
+
+        template = jinja_environment.get_template('JobPosting.html')
+        self.response.out.write(template.render(title=title))
 
 class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
     def get(self):
