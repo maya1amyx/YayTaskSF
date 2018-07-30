@@ -1,0 +1,38 @@
+/* Full-width inputs*/ /
+/* input[type=text], input[type=password] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+} */
+
+/* Set a style for all buttons */
+h1 {
+  font-family:'Open Sans', sans-serif;
+  background-color: orange;
+}
+
+#header {
+  font-family:'Open Sans', sans-serif;
+  background-color: orange;
+  color: White;
+  text-align: center;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    text-align: center;
+    align-items: center;
+}
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
