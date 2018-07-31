@@ -55,7 +55,7 @@ class Job(ndb.Model):
     title = ndb.StringProperty()
     type = ndb.StringProperty()
     disc = ndb.StringProperty()
-    wage = ndb.IntegerProperty()
+    wage = ndb.StringProperty()
     hours = ndb.StringProperty()
 
 
@@ -94,7 +94,6 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
     def create_job_post(self, jtitle, type, jdisc, wage, hours):
         post = Job(title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
         post = post.put()
-
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
         title = self.request.get('jtitle')
@@ -109,7 +108,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('JobPostConfirm.html')
         self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
 
-        self.create_job_post()
+        self.create_job_post(title, type, disc, wage, hours)
 
 
 #########################################################################
