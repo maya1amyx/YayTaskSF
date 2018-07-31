@@ -87,11 +87,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
         title = self.request.get('jtitle')
-        # title = ndb.StringProperty()
-        # title_key = title.put()
-        # returned_title = title_key.get()
         type = self.request.get('type')
-
         disc = self.request.get('jdisc')
         wage = self.request.get('wage')
         hours = self.request.get('hours')
