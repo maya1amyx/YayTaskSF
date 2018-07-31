@@ -14,7 +14,10 @@
     }
 
     .column {
-        flex: 25%;
+        width: 25%;
+        float: left;
+
+
     }
 
     </style>
@@ -24,7 +27,7 @@
 
   <body>
     <header>
-    <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
+      <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
     </header>
 
     <h1 id="font">Find Jobs</h1>
@@ -33,21 +36,24 @@
 
     {{list_of_jobs}}
 
-    <div class="row">
+<!-- Loops through list of 20 jobs and formats them -->
 
+    {% for item in list_of_jobs %}
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            {% for item in list_of_jobs %}
-              {{ item.title }}
-              <br>
-              {{ item.wage }}
-            {% endfor %}
+            <h3>{{ item.title }}</h3>
+            <h4>{{ item.wage }}</h4>
           </div>
         </a>
       </div>
+    {% endfor %}
 
-      <div class="column">
+    <!-- <div class="row"> -->
+
+
+
+      <!-- <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
             {% for item in list_of_jobs %}
@@ -129,7 +135,7 @@
           </div>
         </a>
       </div>
-    </div>
+    </div> -->
 
 
     <footer>
