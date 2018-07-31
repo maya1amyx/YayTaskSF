@@ -60,15 +60,19 @@ class Job(ndb.Model):
 
 
 class FindJobsHandler(webapp2.RequestHandler):
-    def get(self, Job):
+    def get(self):
 
         list_of_jobs = []
-        jobs = []
+        #jobs = []
 
         query = Job.query().fetch(20,keys_only=True)
 
+        for key in query:
+            one_job = Job.get()
+            list_of_jobs.append(one_job)
+
         template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render(query=query))
+        self.response.out.write(template.render(query=query, job=job))
 
 
 class JobPostHandler(webapp2.RequestHandler):
