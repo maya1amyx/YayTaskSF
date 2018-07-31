@@ -16,14 +16,16 @@
     <h1 id= "header">Post a Job:</h1>
 
 
+    <div class="form_container">
+    <form action="/JobPostConfirm" method="get">
 <!-- inputs -->
-    <p id="type">Job Title: <textarea type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"></textarea></p>
+    <p id="type">Job Title: <input type="text" id="jtitle" name="jtitle" value="ex.Dog Walker"></p>
     <p id="type">Job Type: <input type="text" id="jtype" name="jtype" value="Part Time or One Time"></p>
     <p id="type">Job Description: <input type="text" id="jdisc" name="jdisc" value="Describe Job Here"></p>
     <p id="type">Wage: <input type="text" id="Wage" name="wage" value="ex. 15$/Hour"></p>
     <p id="type">Hours: <input type="text" id="hours" name="hours" value="ex. 4 Hours/Week"></p>
-    <p id="type">Employer Name: <input type="text" id= "ename" name="ename" value="Your Name Here"></p>
-    <p id="type">Company Name (Optional): <input type="text" id="cname" name="cname" value="Company Name"></p>
+    <p id="type">Employer Name: <input type="text" id= "eName" name="eName" value="Your Name Here"></p>
+    <p id="type">Company Name (Optional): <input type="text" id="cName" name="cName" value="Company Name"></p>
     <p id="type"><form>Neighborhood:<select id="Neighborhood">
       <option>Bayview</option>
       <option>Castro/Upper Market</option>
@@ -90,8 +92,8 @@
     <p id="type">Phone Number: <input type="text" name="digits" value="XXX-XXX-XXXX"></p>
     <p id="test">Please review spelling and info before submitting:<p>
 <!-- inputs -->
-    <form action="/JobPostConfirm?title=jtitle" method="get">
-      <center><button type="submit" > <a href="/JobPostConfirm">Submit</a></button></center>
+
+    <center><button class="Submit" type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
     </form>
   <footer>
       <ul>

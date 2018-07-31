@@ -20,12 +20,13 @@
 
     .text {
       color: white;
-      font-size: 50px;
+      font-size: 45px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-40%, -50%);
       opacity: 1;
+      font-family: 'Open Sans', sans-serif;
     }
 
     .overlay {
@@ -95,18 +96,16 @@
       </div>
     </div>
   </div>
-
-  <p id="homepage">Home</p>
-  <p id="webdesc">website description here</p>
+  <p id="webdesc">Welcome to TaskSF, we are a non-profit organization aimed to help teens in San Francisco to find jobs.</p>
 
 
 <a href="{{url}}">{{ url_text }} </a>
 
     <footer>
         <ul>
-          <li><a href="/About">About</a></li>
-          <li><a href="/Privacy">Privacy</a></li>
-          <li><a href="/Help">Help</a></li>
+          <li><a href="/About" id="about">About</a></li>
+          <li><a href="/Privacy" id="privacy">Privacy</a></li>
+          <li><a href="/Help" id="help">Help</a></li>
         </ul>
     </footer>
 
