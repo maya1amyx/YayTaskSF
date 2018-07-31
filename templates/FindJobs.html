@@ -42,14 +42,19 @@
 
     {% for item in list_of_jobs %}
       <div class="column">
-        <a href="/MoreInfo">
+        <a href="/MoreInfo?id={{item.job_id}}">
           <div class= "JobEntry">
             <h3>{{ item.title }}</h3>
             <h4>{{ item.wage }}</h4>
+            {{item.job_id}}
           </div>
         </a>
       </div>
     {% endfor %}
+    <br>
+
+
+
 
     <footer>
         <ul>

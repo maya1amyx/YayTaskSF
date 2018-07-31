@@ -5,11 +5,22 @@ from google.appengine.api import users
 
 template_directory = os.path.join(os.path.dirname(__file__), 'templates') #telling where templates are
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_directory)) #creating jinja objects
-
+list_of_jobs = []
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        currentUser = users.get_current_user()
+
+        if currentUser:  #if current user exists
+            url = users.create_login_url('/')
+            url_text = "logout"
+
+        else:
+
+            url = users.create_login_url('/')
+            url_text = "login"
+
         template = jinja_environment.get_template('index.html') #specify which HTML file to serve
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(url = url, url_text = url_text))
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
@@ -34,20 +45,18 @@ class LoginHandler(webapp2.RequestHandler):
         currentUser = users.get_current_user()
 
         if currentUser:  #if current user exists
-            nickname = currentUser.nickname()  #email address before
 
-            url = users.create_logout_url('/')
-            url_text = "logout"
 
             self.redirect('/PostJobs')
 
         else:
+
             url = users.create_login_url('/')
             url_text = "login"
 
-        template = jinja_environment.get_template('loginpage.html')
-        self.response.out.write(template.render(url = url,
-        url_text = url_text))
+            template = jinja_environment.get_template('loginpage.html')
+            self.response.out.write(template.render(url = url,
+            url_text = url_text))
         # <a href={{ url}}
 
 
@@ -62,6 +71,7 @@ class Job(ndb.Model):
     disc = ndb.StringProperty()
     wage = ndb.StringProperty()
     hours = ndb.StringProperty()
+    job_id = ndb.IntegerProperty()
 
 
 
@@ -71,30 +81,18 @@ class Job(ndb.Model):
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
         #title = self.request.get('jtitle')
-        currentUser = users.get_current_user()
-
-        if currentUser:  #if current user exists
-            nickname = currentUser.nickname()  #email address before
-
-            url = users.create_logout_url('/')
-            url_text = "logout"
-
-            self.redirect('/PostJobs')
-
-        else:
-            url = users.create_login_url('/')
-            url_text = "login"
+        url = users.create_logout_url('/')
 
         template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render( url = url, url_text = url_text))
+        self.response.out.write(template.render(url = url))
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
 
 
     # Creates a category for a job and returns a unique key
-    def create_job_post(self, title, type, disc, wage, hours):
-        post = Job(title=title, type=type, disc=disc, wage= wage, hours=hours)
+    def create_job_post(self, title, type, disc, wage, hours, job_id):
+        post = Job(title=title, type=type, disc=disc, wage= wage, hours=hours, job_id=job_id)
         post = post.put()
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
@@ -103,6 +101,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         disc = self.request.get('disc')
         wage = self.request.get('wage')
         hours = self.request.get('hours')
+        job_id = id(self)
 
         #User input is the name of the variable from our aout html file
 
@@ -110,22 +109,25 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('JobPostConfirm.html')
         self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
 
-        self.create_job_post(title, type, disc, wage, hours)
+        self.create_job_post(title, type, disc, wage, hours, job_id)
 
 class FindJobsHandler(webapp2.RequestHandler):
     def check_for_empty(self):
         query = Job.query().fetch()
 
         for item in query:
-            if item.title == "u" or item.title=="":
-                item.delete()
+            if item.title == "u":
+                Job.item.delete()
+            elif item.title=="":
+                Job.item.delete()
             else:
                 continue
 
     def get(self):
 
-        list_of_jobs = []
+
         #jobs = []
+        self.check_for_empty()
 
         query = Job.query().fetch(20,keys_only=True)
 
@@ -135,13 +137,21 @@ class FindJobsHandler(webapp2.RequestHandler):
 
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
+
 class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
         # post = post_key.get()
         # return post
+        id = self.request.GET.get("item.job_id")
+        # q = id.all()
+        # q.filter(id="item.job_id")
+        # query = Job.query().fetch(id)
+
 
         template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(id=id))
+        # self.response.out.write(template.render(id=id, query=query))
+
 
 
 
@@ -156,6 +166,7 @@ app = webapp2.WSGIApplication([
     ('/Login', LoginHandler),
     ('/FindJobs', FindJobsHandler),
     ('/MoreInfo', MoreInfoHandler),
+    # ('/MoreInfo/([/w]+)', MoreInfoHandler),
     # ('/SignUp', SignUpHandler),
     ('/JobPostConfirm', JobPostConfirmHandler)
 
