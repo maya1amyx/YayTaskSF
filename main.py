@@ -34,6 +34,7 @@ class LoginHandler(webapp2.RequestHandler):
         currentUser = users.get_current_user()
 
         if currentUser:  #if current user exists
+            self.direct('/PostJobs')
             nickname = currentUser.nickname()  #email address before
 
             url = users.create_logout_url('/')
