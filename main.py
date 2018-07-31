@@ -48,6 +48,7 @@ class LoginHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('loginpage.html')
         self.response.out.write(template.render(url = url,
         url_text = url_text))
+        # <a href={{ url}}
 
 
 class SignUpHandler(webapp2.RequestHandler):
@@ -72,7 +73,7 @@ class JobPostHandler(webapp2.RequestHandler):
         #title = self.request.get('jtitle')
 
         template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render( url = url, url_text = url_text))
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
