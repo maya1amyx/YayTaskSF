@@ -46,7 +46,6 @@ class LoginHandler(webapp2.RequestHandler):
 
         if currentUser:  #if current user exists
 
-
             self.redirect('/PostJobs')
 
         else:
@@ -112,28 +111,34 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         self.create_job_post(title, type, disc, wage, hours, job_id)
 
 class FindJobsHandler(webapp2.RequestHandler):
-    def check_for_empty(self):
-        query = Job.query().fetch()
-
-        for item in query:
-            if item.title == "u":
-                Job.item.delete()
-            elif item.title=="":
-                Job.item.delete()
-            else:
-                continue
+    # def check_for_empty(self):
+    #     query = Job.query().fetch()
+    #
+    #     for item in Job:
+    #         if item.title == "u":
+    #             item.delete()
+    #         elif item.title=="":
+    #             item.delete()
+    #         else:
+    #             continue
 
     def get(self):
-
-
         #jobs = []
-        self.check_for_empty()
+        #self.check_for_empty()
 
-        query = Job.query().fetch(20,keys_only=True)
+        query = Job.query().fetch(16,keys_only=True)
 
         for Key in query:
             one_job = Key.get()
             list_of_jobs.append(one_job)
+
+        for item in list_of_jobs:
+            if item.title == "u":
+                list_of_jobs.remove(item)
+            elif item.title=="":
+                list_of_jobs.remove(item)
+            else:
+                continue
 
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
