@@ -8,10 +8,11 @@ jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template
 list_of_jobs = []
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
         currentUser = users.get_current_user()
 
         if currentUser:  #if current user exists
-            url = users.create_login_url('/')
+            url = users.create_logout_url('/')
             url_text = "logout"
 
         else:
