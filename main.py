@@ -144,10 +144,7 @@ class MoreInfoHandler(webapp2.RequestHandler):
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 8549a5e45da980212e46d435a8d044cf422c4026
 #########################################################################
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
