@@ -84,7 +84,7 @@ class JobPostHandler(webapp2.RequestHandler):
         url = users.create_logout_url('/')
 
         template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render(url = url))
+        self.response.out.write(template.render(url = url, url_text = url_text))
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
