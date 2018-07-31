@@ -20,7 +20,7 @@ class MainHandler(webapp2.RequestHandler):
             url = users.create_login_url('/')
             url_text = "login"
 
-        template = jinja_environment.get_template('index.html') #specify which HTML file to serve
+        template = jinja_environment.get_template('loginpage.html') #specify which HTML file to serve
         self.response.out.write(template.render(url = url,
         url_text = url_text))
 
