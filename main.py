@@ -30,15 +30,16 @@ class AboutHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
         #sends the variables to the html as a parameter
 
-
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('HelpPage.html')
         self.response.out.write(template.render())
+
 class PrivacyHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('PrivacyPage.html')
         self.response.out.write(template.render())
+
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('loginpage.html')
@@ -59,15 +60,15 @@ class Job(ndb.Model):
 
 
 class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
+    def get(self, Job):
 
         list_of_jobs = []
         jobs = []
 
-        query = Entity.query().fetch(20,keys_only=True)
+        query = Job.query().fetch(20,keys_only=True)
 
         template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render(query))
+        self.response.out.write(template.render(query=query))
 
 
 class JobPostHandler(webapp2.RequestHandler):
@@ -80,9 +81,9 @@ class JobPostHandler(webapp2.RequestHandler):
 
 
 class MoreInfoHandler(webapp2.RequestHandler):
-    def get(self, post_key):
-        post = post_key.get()
-        return post
+    def get(self):
+        # post = post_key.get()
+        # return post
 
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render())
@@ -91,10 +92,8 @@ class MoreInfoHandler(webapp2.RequestHandler):
 class JobPostConfirmHandler(webapp2.RequestHandler):
     # Creates a category for a job and returns a unique key
     def create_job_post(self, jtitle, type, jdisc, wage, hours):
-        post = Job(
-            title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
-        # post_key=post.put()
-        # return post_key
+        post = Job(title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
+        post = post.put()
 
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
