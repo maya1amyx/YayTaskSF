@@ -29,7 +29,7 @@
 
     <h1>Find Jobs</h1>
 
-    {{ query }}
+    <!-- {{ query }}-->
 
     {{list_of_jobs}}
 
@@ -38,7 +38,11 @@
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            DOG WALKER $15/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
@@ -46,7 +50,11 @@
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            WATER PLANTS $15/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
@@ -54,7 +62,11 @@
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            LAWN MOWER $20/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
@@ -62,7 +74,11 @@
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            YARD CARE $30/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
@@ -72,28 +88,44 @@
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            CHILD CARE $35/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            CAR WASH $30/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            CAT WALKER $15/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
       <div class="column">
         <a href="/MoreInfo">
           <div class= "JobEntry">
-            DOG WALKER $15/hour
+            {% for item in list_of_jobs %}
+              {{ item.title }}
+              <br>
+              {{ item.wage }}
+            {% endfor %}
           </div>
         </a>
       </div>
