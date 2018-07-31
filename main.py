@@ -43,10 +43,10 @@ class PrivacyHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('PrivacyPage.html')
         self.response.out.write(template.render())
-class LoginHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('loginpage.html')
-        self.response.out.write(template.render())
+# class LoginHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_environment.get_template('loginpage.html')
+#         self.response.out.write(template.render())
 class FindJobsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('FindJobs.html')
@@ -55,10 +55,24 @@ class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render())
-class SignUpHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('SignUp.html')
-        self.response.out.write(template.render())
+# class SignUpHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_environment.get_template('SignUp.html')
+#         self.response.out.write(template.render())
+
+
+
+class Job(ndb.Model):
+    title = ndb.StringProperty()
+    type = ndb.StringProperty()
+    disc = ndb.StringProperty()
+    wage = ndb.IntegerProperty()
+    hours = ndb.StringProperty()
+
+
+
+
+
 
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
@@ -67,7 +81,20 @@ class JobPostHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('JobPosting.html')
         self.response.out.write(template.render())
 
-class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
+
+
+
+
+
+class JobPostConfirmHandler(webapp2.RequestHandler):
+    # Creates a category for a job and returns a unique key
+    def create_job_post(self, jtitle, type, jdisc, wage, hours):
+        post = Job(
+            title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
+        post_key=post.put()
+        return post_key
+
+    # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
         title = self.request.get('jtitle')
         # title = ndb.StringProperty()
@@ -76,12 +103,18 @@ class JobPostConfirmHandler(webapp2.RequestHandler, ndb.Model):
         type = self.request.get('type')
 
         disc = self.request.get('jdisc')
-        wage = self.request.get('jwage')
-        hours = self.request.get('jhours')
+        wage = self.request.get('wage')
+        hours = self.request.get('hours')
 
         #User input is the name of the variable from our aout html file
+
+        #https://sites.google.com/site/usfcomputerscience/html
         template = jinja_environment.get_template('JobPostConfirm.html')
         self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
+
+        self.create_job_post()
+
+
 
 
 
