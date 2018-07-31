@@ -67,14 +67,14 @@ class FindJobsHandler(webapp2.RequestHandler):
         #jobs = []
 
         query = Job.query().fetch(20,keys_only=True)
-        #
-        # for Key in query:
-        #     one_job = Key[1].get()
-        #     list_of_jobs.append(one_job)
+
+        for Key in query:
+            one_job = Key.get()
+            list_of_jobs.append(one_job)
 
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs))
-        
+
 # [Key('Job', 4644337115725824), Key('Job', 4785074604081152), Key('Job', 5066549580791808), Key('Job', 5348024557502464), Key('Job', 5629499534213120), Key('Job', 5770237022568448), Key('Job', 5910974510923776), Key('Job', 6192449487634432), Key('Job', 6473924464345088)] []
 
 class JobPostHandler(webapp2.RequestHandler):
