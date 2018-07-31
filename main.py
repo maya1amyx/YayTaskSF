@@ -46,7 +46,6 @@ class LoginHandler(webapp2.RequestHandler):
 
         if currentUser:  #if current user exists
 
-
             self.redirect('/PostJobs')
 
         else:
