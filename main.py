@@ -31,16 +31,16 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
 
 
-    currentUser = users.get_current_user()
+        currentUser = users.get_current_user()
 
-    if currentUser:  #if current user exists
-        nickname = currentUser.nickname()  #email address before
+        if currentUser:  #if current user exists
+            nickname = currentUser.nickname()  #email address before
 
-        url = users.create_logout_url('/')
-        url_text = "logout"
-    else:
-        url = users.create_login_url('/')
-        url_text = "login"
+            url = users.create_logout_url('/')
+            url_text = "logout"
+        else:
+            url = users.create_login_url('/')
+            url_text = "login"
 
         template = jinja_environment.get_template('loginpage.html')
         self.response.out.write(template.render(url = url,
