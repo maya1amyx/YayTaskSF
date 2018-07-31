@@ -18,6 +18,10 @@
 
     <div class="body_confirm">
 
+      {% for item in post %}
+        {{item}}
+      {%endfor%}
+
       <p>Job Title: {{title}}</p>
       <p>Job Type: {{type}}</p>
 

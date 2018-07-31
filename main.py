@@ -72,26 +72,18 @@ class JobPostHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
 
 
-
-class MoreInfoHandler(webapp2.RequestHandler):
-    def get(self):
-        # post = post_key.get()
-        # return post
-
-        template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render())
-
-
 class JobPostConfirmHandler(webapp2.RequestHandler):
+
+
     # Creates a category for a job and returns a unique key
-    def create_job_post(self, jtitle, type, jdisc, wage, hours):
-        post = Job(title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
+    def create_job_post(self, title, type, disc, wage, hours):
+        post = Job(title=title, type=type, disc=disc, wage= wage, hours=hours)
         post = post.put()
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
-        title = self.request.get('jtitle')
+        title = self.request.get('title')
         type = self.request.get('type')
-        disc = self.request.get('jdisc')
+        disc = self.request.get('disc')
         wage = self.request.get('wage')
         hours = self.request.get('hours')
 
@@ -104,6 +96,15 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         self.create_job_post(title, type, disc, wage, hours)
 
 class FindJobsHandler(webapp2.RequestHandler):
+    def check_for_empty(self):
+        query = Job.query().fetch()
+
+        for item in query:
+            if item.title == "u" or item.title=="":
+                item.delete()
+            else:
+                continue
+
     def get(self):
 
         list_of_jobs = []
@@ -115,14 +116,20 @@ class FindJobsHandler(webapp2.RequestHandler):
             one_job = Key.get()
             list_of_jobs.append(one_job)
 
-        for item in list_of_jobs:
-            if item.title == "u":
-                item.key.delete()
-            else:
-                continue
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs))
 
+
+        template = jinja_environment.get_template('FindJobs.html')
+        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
+class MoreInfoHandler(webapp2.RequestHandler):
+    def get(self):
+        # post = post_key.get()
+        # return post
+
+        template = jinja_environment.get_template('morejobinfo.html')
+        self.response.out.write(template.render())
+
+
+        
 #########################################################################
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
