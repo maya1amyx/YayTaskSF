@@ -124,9 +124,7 @@ class FindJobsHandler(webapp2.RequestHandler):
     #             continue
 
     def get(self):
-        #jobs = []
-        #self.check_for_empty()
-
+        list_of_jobs = []
         query = Job.query().fetch(16,keys_only=True)
 
         for Key in query:
