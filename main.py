@@ -38,6 +38,7 @@ class LoginHandler(webapp2.RequestHandler):
 
             url = users.create_logout_url('/')
             url_text = "logout"
+
         else:
             url = users.create_login_url('/')
             url_text = "login"
@@ -60,7 +61,51 @@ class Job(ndb.Model):
     hours = ndb.StringProperty()
 
 
+
+
+# [Key('Job', 4644337115725824), Key('Job', 4785074604081152), Key('Job', 5066549580791808), Key('Job', 5348024557502464), Key('Job', 5629499534213120), Key('Job', 5770237022568448), Key('Job', 5910974510923776), Key('Job', 6192449487634432), Key('Job', 6473924464345088)] []
+
+class JobPostHandler(webapp2.RequestHandler):
+    def get(self):
+        #title = self.request.get('jtitle')
+
+        template = jinja_environment.get_template('JobPosting.html')
+        self.response.out.write(template.render())
+
+
+class JobPostConfirmHandler(webapp2.RequestHandler):
+
+
+    # Creates a category for a job and returns a unique key
+    def create_job_post(self, title, type, disc, wage, hours):
+        post = Job(title=title, type=type, disc=disc, wage= wage, hours=hours)
+        post = post.put()
+    # recieves job info from JobPost page and passes them to the render parameters
+    def get(self):
+        title = self.request.get('title')
+        type = self.request.get('type')
+        disc = self.request.get('disc')
+        wage = self.request.get('wage')
+        hours = self.request.get('hours')
+
+        #User input is the name of the variable from our aout html file
+
+        #https://sites.google.com/site/usfcomputerscience/html
+        template = jinja_environment.get_template('JobPostConfirm.html')
+        self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
+
+        self.create_job_post(title, type, disc, wage, hours)
+
 class FindJobsHandler(webapp2.RequestHandler):
+    def check_for_empty(self):
+        query = Job.query().fetch()
+
+        for item in query:
+            if item.title == "u" or item.title=="":
+                item.delete()
+            else:
+                continue
+
     def get(self):
 
         list_of_jobs = []
@@ -73,19 +118,7 @@ class FindJobsHandler(webapp2.RequestHandler):
             list_of_jobs.append(one_job)
 
         template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs))
-
-# [Key('Job', 4644337115725824), Key('Job', 4785074604081152), Key('Job', 5066549580791808), Key('Job', 5348024557502464), Key('Job', 5629499534213120), Key('Job', 5770237022568448), Key('Job', 5910974510923776), Key('Job', 6192449487634432), Key('Job', 6473924464345088)] []
-
-class JobPostHandler(webapp2.RequestHandler):
-    def get(self):
-        #title = self.request.get('jtitle')
-
-        template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render())
-
-
-
+        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
 class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
         # post = post_key.get()
@@ -94,27 +127,6 @@ class MoreInfoHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render())
 
-
-class JobPostConfirmHandler(webapp2.RequestHandler):
-    # Creates a category for a job and returns a unique key
-    def create_job_post(self, jtitle, type, jdisc, wage, hours):
-        post = Job(title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
-        post = post.put()
-    # recieves job info from JobPost page and passes them to the render parameters
-    def get(self):
-        title = self.request.get('jtitle')
-        type = self.request.get('type')
-        disc = self.request.get('jdisc')
-        wage = self.request.get('wage')
-        hours = self.request.get('hours')
-
-        #User input is the name of the variable from our aout html file
-
-        #https://sites.google.com/site/usfcomputerscience/html
-        template = jinja_environment.get_template('JobPostConfirm.html')
-        self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
-
-        self.create_job_post(title, type, disc, wage, hours)
 
 
 #########################################################################
