@@ -71,6 +71,19 @@ class Job(ndb.Model):
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
         #title = self.request.get('jtitle')
+        currentUser = users.get_current_user()
+
+        if currentUser:  #if current user exists
+            nickname = currentUser.nickname()  #email address before
+
+            url = users.create_logout_url('/')
+            url_text = "logout"
+
+            self.redirect('/PostJobs')
+
+        else:
+            url = users.create_login_url('/')
+            url_text = "login"
 
         template = jinja_environment.get_template('JobPosting.html')
         self.response.out.write(template.render( url = url, url_text = url_text))
