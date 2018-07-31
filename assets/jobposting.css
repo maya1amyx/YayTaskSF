@@ -6,11 +6,18 @@
   padding: 10px;
 }
 
+button a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
 button {
     background-color: orange;
     color: White;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px;
     border: none;
     cursor: pointer;
     width: 10%;
@@ -19,7 +26,7 @@ button {
 }
 /* Add a hover effect for buttons */
 button:hover {
-    opacity: 0.8;
+  background-color: #ff8300;
 }
 
 #type {
