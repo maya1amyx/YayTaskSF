@@ -38,6 +38,7 @@ class LoginHandler(webapp2.RequestHandler):
 
             url = users.create_logout_url('/')
             url_text = "logout"
+
         else:
             url = users.create_login_url('/')
             url_text = "login"
@@ -116,8 +117,6 @@ class FindJobsHandler(webapp2.RequestHandler):
             one_job = Key.get()
             list_of_jobs.append(one_job)
 
-
-
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
 class MoreInfoHandler(webapp2.RequestHandler):
@@ -129,7 +128,7 @@ class MoreInfoHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
 
 
-        
+
 #########################################################################
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
