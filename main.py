@@ -43,10 +43,10 @@ class PrivacyHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('PrivacyPage.html')
         self.response.out.write(template.render())
-# class LoginHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('loginpage.html')
-#         self.response.out.write(template.render())
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('loginpage.html')
+        self.response.out.write(template.render())
 class FindJobsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('FindJobs.html')
