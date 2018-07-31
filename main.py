@@ -8,21 +8,8 @@ jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
-        currentUser = users.get_current_user()
-
-        if currentUser:  #if current user exists
-            nickname = currentUser.nickname()  #email address before @
-
-            url = users.create_logout_url('/')
-            url_text = "logout"
-        else:
-            url = users.create_login_url('/')
-            url_text = "login"
-
         template = jinja_environment.get_template('index.html') #specify which HTML file to serve
-        self.response.out.write(template.render(url = url,
-        url_text = url_text))
+        self.response.out.write(template.render())
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
@@ -42,8 +29,22 @@ class PrivacyHandler(webapp2.RequestHandler):
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
+
+
+        currentUser = users.get_current_user()
+
+        if currentUser:  #if current user exists
+            nickname = currentUser.nickname()  #email address before
+
+            url = users.create_logout_url('/')
+            url_text = "logout"
+        else:
+            url = users.create_login_url('/')
+            url_text = "login"
+
         template = jinja_environment.get_template('loginpage.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(url = url,
+        url_text = url_text))
 
 
 class SignUpHandler(webapp2.RequestHandler):
