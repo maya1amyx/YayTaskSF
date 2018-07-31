@@ -34,7 +34,6 @@ class FindJobsHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render())
 
-
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('HelpPage.html')
