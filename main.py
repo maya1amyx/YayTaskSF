@@ -55,10 +55,10 @@ class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render())
-# class SignUpHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('SignUp.html')
-#         self.response.out.write(template.render())
+class SignUpHandler(webapp2.RequestHandler):
+     def get(self):
+         template = jinja_environment.get_template('SignUp.html')
+         self.response.out.write(template.render())
 
 
 
