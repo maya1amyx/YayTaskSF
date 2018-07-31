@@ -47,14 +47,9 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('loginpage.html')
         self.response.out.write(template.render())
-class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render())
-class MoreInfoHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render())
+
+
+
 # class SignUpHandler(webapp2.RequestHandler):
 #     def get(self):
 #         template = jinja_environment.get_template('SignUp.html')
@@ -72,6 +67,16 @@ class Job(ndb.Model):
 
 
 
+class FindJobsHandler(webapp2.RequestHandler):
+    def get(self):
+
+        list_of_jobs = []
+        jobs = []
+
+        query = Entity.query().fetch(20,keys_only=True)
+
+        template = jinja_environment.get_template('FindJobs.html')
+        self.response.out.write(template.render(query))
 
 
 class JobPostHandler(webapp2.RequestHandler):
@@ -83,7 +88,13 @@ class JobPostHandler(webapp2.RequestHandler):
 
 
 
+class MoreInfoHandler(webapp2.RequestHandler):
+    def get(self, post_key):
+        post = post_key.get()
+        return post
 
+        template = jinja_environment.get_template('morejobinfo.html')
+        self.response.out.write(template.render())
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
@@ -91,8 +102,8 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
     def create_job_post(self, jtitle, type, jdisc, wage, hours):
         post = Job(
             title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
-        post_key=post.put()
-        return post_key
+        # post_key=post.put()
+        # return post_key
 
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
