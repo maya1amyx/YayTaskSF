@@ -121,7 +121,7 @@ app = webapp2.WSGIApplication([
     ('/PostJobs', JobPostHandler),
     ('/Help', HelpPageHandler),
     ('/Privacy', PrivacyHandler),
-    # ('/Login', LoginHandler),
+    ('/Login', LoginHandler),
     ('/FindJobs', FindJobsHandler),
     ('/MoreInfo', MoreInfoHandler),
     # ('/SignUp', SignUpHandler),
