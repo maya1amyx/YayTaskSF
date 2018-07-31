@@ -55,12 +55,10 @@ class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render())
-# class SignUpHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('SignUp.html')
-#         self.response.out.write(template.render())
-
-
+class SignUpHandler(webapp2.RequestHandler):
+     def get(self):
+         template = jinja_environment.get_template('SignUp.html')
+         self.response.out.write(template.render())
 
 class Job(ndb.Model):
     title = ndb.StringProperty()
@@ -70,20 +68,12 @@ class Job(ndb.Model):
     hours = ndb.StringProperty()
 
 
-
-
-
-
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
         #title = self.request.get('jtitle')
 
         template = jinja_environment.get_template('JobPosting.html')
         self.response.out.write(template.render())
-
-
-
-
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
@@ -109,9 +99,6 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
 
         self.create_job_post()
-
-
-
 
 
 #########################################################################
