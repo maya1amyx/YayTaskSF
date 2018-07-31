@@ -29,10 +29,7 @@ class AboutHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('AboutPage.html') #specify which HTML file to serve
         self.response.out.write(template.render())
         #sends the variables to the html as a parameter
-class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render())
+
 
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -46,14 +43,8 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('loginpage.html')
         self.response.out.write(template.render())
-class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render())
-class MoreInfoHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render())
+
+
 class SignUpHandler(webapp2.RequestHandler):
      def get(self):
          template = jinja_environment.get_template('SignUp.html')
@@ -67,6 +58,18 @@ class Job(ndb.Model):
     hours = ndb.StringProperty()
 
 
+class FindJobsHandler(webapp2.RequestHandler):
+    def get(self):
+
+        list_of_jobs = []
+        jobs = []
+
+        query = Entity.query().fetch(20,keys_only=True)
+
+        template = jinja_environment.get_template('FindJobs.html')
+        self.response.out.write(template.render(query))
+
+
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
         #title = self.request.get('jtitle')
@@ -75,13 +78,23 @@ class JobPostHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
 
 
+
+class MoreInfoHandler(webapp2.RequestHandler):
+    def get(self, post_key):
+        post = post_key.get()
+        return post
+
+        template = jinja_environment.get_template('morejobinfo.html')
+        self.response.out.write(template.render())
+
+
 class JobPostConfirmHandler(webapp2.RequestHandler):
     # Creates a category for a job and returns a unique key
     def create_job_post(self, jtitle, type, jdisc, wage, hours):
         post = Job(
             title=jtitle, type=type, disc=jdisc, wage= wage, hours=hours)
-        post_key=post.put()
-        return post_key
+        # post_key=post.put()
+        # return post_key
 
     # recieves job info from JobPost page and passes them to the render parameters
     def get(self):
@@ -108,10 +121,10 @@ app = webapp2.WSGIApplication([
     ('/PostJobs', JobPostHandler),
     ('/Help', HelpPageHandler),
     ('/Privacy', PrivacyHandler),
-    ('/Login', LoginHandler),
+    # ('/Login', LoginHandler),
     ('/FindJobs', FindJobsHandler),
     ('/MoreInfo', MoreInfoHandler),
-    ('/SignUp', SignUpHandler),
+    # ('/SignUp', SignUpHandler),
     ('/JobPostConfirm', JobPostConfirmHandler)
 
 ], debug=True)
