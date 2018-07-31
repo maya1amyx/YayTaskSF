@@ -29,10 +29,7 @@ class AboutHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('AboutPage.html') #specify which HTML file to serve
         self.response.out.write(template.render())
         #sends the variables to the html as a parameter
-class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render())
+
 
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -46,30 +43,12 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('loginpage.html')
         self.response.out.write(template.render())
-<<<<<<< HEAD
 
 
-
-# class SignUpHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('SignUp.html')
-#         self.response.out.write(template.render())
-
-
-=======
-class FindJobsHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render())
-class MoreInfoHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render())
 class SignUpHandler(webapp2.RequestHandler):
      def get(self):
          template = jinja_environment.get_template('SignUp.html')
          self.response.out.write(template.render())
->>>>>>> a9aa267564ae8e040a874d542be6c4e962aaf06d
 
 class Job(ndb.Model):
     title = ndb.StringProperty()
@@ -77,9 +56,6 @@ class Job(ndb.Model):
     disc = ndb.StringProperty()
     wage = ndb.IntegerProperty()
     hours = ndb.StringProperty()
-
-
-<<<<<<< HEAD
 
 
 class FindJobsHandler(webapp2.RequestHandler):
@@ -94,8 +70,6 @@ class FindJobsHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(query))
 
 
-=======
->>>>>>> a9aa267564ae8e040a874d542be6c4e962aaf06d
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
         #title = self.request.get('jtitle')
@@ -104,7 +78,6 @@ class JobPostHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
 
 
-<<<<<<< HEAD
 
 class MoreInfoHandler(webapp2.RequestHandler):
     def get(self, post_key):
@@ -115,8 +88,6 @@ class MoreInfoHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
 
 
-=======
->>>>>>> a9aa267564ae8e040a874d542be6c4e962aaf06d
 class JobPostConfirmHandler(webapp2.RequestHandler):
     # Creates a category for a job and returns a unique key
     def create_job_post(self, jtitle, type, jdisc, wage, hours):
