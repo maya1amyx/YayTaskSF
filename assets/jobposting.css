@@ -43,7 +43,11 @@ button:hover {
 form{
   padding: 20px;
   background-color: #e2e2e2;
-  width: 75%;
-  align: middle;
   margin: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+.Submit{
+  width: 100px;
 }

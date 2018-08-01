@@ -19,7 +19,6 @@ a:hover, a:active { text-decoration: none; color:white }
 
 
 
-
 .header{
   margin:0px;
   padding: 0px;
@@ -200,10 +199,15 @@ button:hover {
 
 }#cindy{
   font-family: 'Open Sans', sans-serif;
+<<<<<<< HEAD
+}#contact_info{
+  text-align: center;
+=======
 
 }#bottomright{
   font-family: 'Open Sans', sans-serif;
 
 }#plslogin{
   font-family: 'Open Sans', sans-serif;
+>>>>>>> d014b895d98ff79a4d9d1cf4eee978e3315774a6
 }

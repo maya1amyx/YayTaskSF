@@ -73,27 +73,31 @@
           <option value="Text">Phone (Text)</option>
           <option value="Both">Either</option>
         </select><input type="button" onclick="getOption()" value="Submit Choice">
+        <div id="contact_info">
+
         <div id="contactbyconfirmation"></div>
+
         <script>
           function getOption(option){
           var contactby = document.getElementById("contactby").value;
             if (contactby == "Email") {
-              document.getElementById("contactbyconfirmation").innerHTML = ("Only your email will be shown to users");
+              document.getElementById("contactbyconfirmation").innerHTML = ("OK, only your email will be shown to users");
             }
             if (contactby == "Call") {
-              document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+              document.getElementById("contactbyconfirmation").innerHTML = ("OK, only your phone number will be shown to users");
             }
             if (contactby == "Text") {
-              document.getElementById("contactbyconfirmation").innerHTML = ("Only your phone number will be shown to users");
+              document.getElementById("contactbyconfirmation").innerHTML = ("OK, only your phone number will be shown to users");
             }
             if (contactby == "Both") {
-              document.getElementById("contactbyconfirmation").innerHTML = ("Both your phone number and email will be shown to users");
+              document.getElementById("contactbyconfirmation").innerHTML = ("OK, both your phone number and email will be shown to users");
             }
             if (contactby == "Select") {
               document.getElementById("contactbyconfirmation").innerHTML = ("");
             }
           }
-          </script></p>
+          </script></p>        </div>
+
     <p id="type">Email: <input type="text" name="email" placeholder="ex.John@example.com"></p>
     <p id="type">Phone Number: <input type="text" name="digits" placeholder="XXX-XXX-XXXX"></p>
     <p id="test">Please review spelling and info before submitting:<p>
@@ -101,6 +105,10 @@
 
     <center><button class="Submit" type="submit" > <a href="/JobPostConfirm">Submit</a> </button></center>
     </form>
+<<<<<<< HEAD
+  </div>
+=======
+>>>>>>> d014b895d98ff79a4d9d1cf4eee978e3315774a6
 <!--
     <div> <a href="{{url}}"><button type="logout">{{ url_text }}</button></a> </div>
       <label> -->
