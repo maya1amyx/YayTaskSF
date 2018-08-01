@@ -130,7 +130,7 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         #User input is the name of the variable from our aout html file
 
         #https://sites.google.com/site/usfcomputerscience/html
-        template = jinja_environment.get_template('JobPostConfirm.html')
+        template = jinja_environment.get_template('jobpostconfirm.html')
         self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours, url = url, url_text = url_text))
 
         self.create_job_post(title, type, disc, wage, hours, job_id,)
