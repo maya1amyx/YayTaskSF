@@ -43,26 +43,30 @@
 
     <!-- {{ query }}-->
 
-    {{list_of_jobs}}
+    <!-- {{list_of_jobs}} -->
     <br>
 
     <br>
 <!-- Loops through list of 20 jobs and formats them -->
+    <div class="Find_Jobs_Main">
 
-    {% for item in list_of_jobs %}
-      <div class="column">
-        <a href="/MoreInfo?id={{item.job_id}}">
-          <div class= "JobEntry">
-            <h3>{{ item.title }}</h3>
-            <h4>{{ item.wage }}</h4>
-            {{item.job_id}}
-          </div>
-        </a>
-      </div>
-    {% endfor %}
-   <br>
+      {% for item in list_of_jobs %}
+        <div class="column">
+          <a href="/MoreInfo?id={{item.job_id}}">
+            <div class= "JobEntry">
+              <h3>{{ item.title }}</h3>
+              <h4>{{ item.wage }}</h4>
+              {{item.job_id}}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
 
-    <footer>
+   <br><br><br><br><br><br><br><br><b><br><br><br>
+   </b>
+
+    <footer id="footer_Find_Jobs">
         <ul>
           <li><a href="/About" id="about">About</a></li>
           <li><a href="/Privacy" id="privacy">Privacy</a></li>
