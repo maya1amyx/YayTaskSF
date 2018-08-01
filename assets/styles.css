@@ -20,8 +20,10 @@ a:hover, a:active { text-decoration: none; color:white }
 
 
 
-.header_img{
+.header{
   margin:0px;
+  padding: 0px;
+  width: 100%;
 }
 /* Footer styles */
 ul {
