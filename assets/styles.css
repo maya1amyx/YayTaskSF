@@ -17,6 +17,9 @@ a:hover { text-decoration: none; color:white; }
 a:focus { text-decoration: none; color:white; }
 a:hover, a:active { text-decoration: none; color:white }
 
+
+
+
 .header_img{
   margin:0px;
 }
@@ -93,7 +96,9 @@ footer{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   margin: 0px;
+
 }
+
 
 .body_confirm{
   background-color: #e8e8e8;
@@ -190,7 +195,7 @@ button:hover {
 
 }#iryne{
   font-family: 'Open Sans', sans-serif;
-  
+
 }#cindy{
   font-family: 'Open Sans', sans-serif;
 }
