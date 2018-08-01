@@ -4,6 +4,9 @@ form {
 }
 
 Full-width inputs*/
+h2{
+  font-size:20px;
+}
 input[type=text], input[type=password] {
     text-align: center;
     width: 20%;
@@ -13,7 +16,18 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
+body{
+  text-align: center;
+  background-color: #e8e8e8
+}
+.main_stuff{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: white;
+  margin: 40px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
 /* Set a style for all buttons */
 button {
     text-align: center;
@@ -23,7 +37,8 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: 100px;
+    font-size: 20px
 }
 /* Add a hover effect for buttons */
 button:hover {
