@@ -103,7 +103,11 @@ footer{
   font-size: 14px;
 }
 
-
+.about_styles{
+  background-color: #e8e8e8;
+  margin: 30px;
+  padding: 40px;
+}
 
 .Go_To_Listings{
   background-color: orange;
