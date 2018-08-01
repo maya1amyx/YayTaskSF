@@ -98,15 +98,15 @@ class Job(ndb.Model):
 
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
-        url_text = test_login_text()
-        url = test_login_url()
-        #title = self.request.get('jtitle')
-        url = users.create_logout_url('/')
-        url_text = "logout"
+        # url_text = test_login_text()
+        # url = test_login_url()
+        # #title = self.request.get('jtitle')
+        # url = users.create_logout_url('/')
+        # url_text = "logout"
 
 
         template = jinja_environment.get_template('JobPosting.html')
-        self.response.out.write(template.render(url = url, url_text = url_text))
+        self.response.out.write(template.render())
 
 
 class JobPostConfirmHandler(webapp2.RequestHandler):
