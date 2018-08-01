@@ -1,3 +1,17 @@
+.container_header {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.login_bottom_right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
 
 .header_img{
   margin:0px;

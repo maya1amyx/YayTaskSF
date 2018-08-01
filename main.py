@@ -6,36 +6,52 @@ from google.appengine.api import users
 template_directory = os.path.join(os.path.dirname(__file__), 'templates') #telling where templates are
 jinja_environment = jinja2.Environment(loader = jinja2.FileSystemLoader(template_directory)) #creating jinja objects
 list_of_jobs = []
+
+def test_login_url():
+    currentUser = users.get_current_user()
+    if currentUser:  #if current user exists
+        url = users.create_logout_url('/')
+    else:
+        url = users.create_login_url('/')
+    return url
+
+def test_login_text():
+    currentUser = users.get_current_user()
+    if currentUser:  #if current user exists
+        url_text = "logout"
+    else:
+        url_text = "login"
+    return url_text
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-        currentUser = users.get_current_user()
-
-        if currentUser:  #if current user exists
-            url = users.create_logout_url('/')
-            url_text = "logout"
-
-        else:
-
-            url = users.create_login_url('/')
-            url_text = "login"
+        url_text = test_login_text()
+        url = test_login_url()
 
         template = jinja_environment.get_template('index.html') #specify which HTML file to serve
         self.response.out.write(template.render(url = url, url_text = url_text))
 
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
+        url_text = test_login_text()
+        url = test_login_url()
         template = jinja_environment.get_template('AboutPage.html') #specify which HTML file to serve
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(url = url, url_text = url_text))
         #sends the variables to the html as a parameter
 
 class HelpPageHandler(webapp2.RequestHandler):
     def get(self):
+        url_text = test_login_text()
+        url = test_login_url()
         template = jinja_environment.get_template('HelpPage.html')
         self.response.out.write(template.render())
 
 class PrivacyHandler(webapp2.RequestHandler):
     def get(self):
+        url_text = test_login_text()
+        url = test_login_url()
         template = jinja_environment.get_template('PrivacyPage.html')
         self.response.out.write(template.render())
 
@@ -62,6 +78,8 @@ class LoginHandler(webapp2.RequestHandler):
 
 class SignUpHandler(webapp2.RequestHandler):
      def get(self):
+         url_text = test_login_text()
+         url = test_login_url()
          template = jinja_environment.get_template('SignUp.html')
          self.response.out.write(template.render())
 
@@ -80,6 +98,8 @@ class Job(ndb.Model):
 
 class JobPostHandler(webapp2.RequestHandler):
     def get(self):
+        url_text = test_login_text()
+        url = test_login_url()
         #title = self.request.get('jtitle')
         url = users.create_logout_url('/')
         url_text = "logout"
@@ -104,6 +124,8 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
         wage = self.request.get('wage')
         hours = self.request.get('hours')
         job_id = id(self)
+        url_text = test_login_text()
+        url = test_login_url()
 
         #User input is the name of the variable from our aout html file
 
@@ -140,6 +162,8 @@ class FindJobsHandler(webapp2.RequestHandler):
                 list_of_jobs.remove(item)
             else:
                 continue
+        url_text = test_login_text()
+        url = test_login_url()
 
         template = jinja_environment.get_template('FindJobs.html')
         self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
@@ -153,7 +177,8 @@ class MoreInfoHandler(webapp2.RequestHandler):
         # q.filter(id="item.job_id")
         # query = Job.query().fetch(id)
 
-
+        url_text = test_login_text()
+        url = test_login_url()
         template = jinja_environment.get_template('morejobinfo.html')
         self.response.out.write(template.render(id=id))
         # self.response.out.write(template.render(id=id, query=query))
