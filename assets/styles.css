@@ -20,7 +20,6 @@ a:hover, a:active { text-decoration: none; color:white }
 
 
 
-
 .header{
   margin:0px;
   padding: 0px;
@@ -201,4 +200,6 @@ button:hover {
 
 }#cindy{
   font-family: 'Open Sans', sans-serif;
+}#contact_info{
+  text-align: center;
 }
