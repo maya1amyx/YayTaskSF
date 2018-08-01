@@ -4,7 +4,7 @@
     color: white;
 }
 #footer_Find_Jobs{
-  margin: 20px;
+  /* margin: 20px; */
   display:block;
   align-items: center;
   overflow: auto;
@@ -12,7 +12,7 @@
   right:0px;
   left:0px;
   position: relative;
-  padding:40px;
+  /* padding:40px; */
 }
 .Find_Jobs_Main{
   margin: 30px;
