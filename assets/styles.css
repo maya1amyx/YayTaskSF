@@ -1,3 +1,18 @@
+.container_header {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.login_bottom_right {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+a:visited { text-decoration: none; color:white; }
 
 .header_img{
   margin:0px;
@@ -58,7 +73,7 @@ p {
   border-radius: 5px;
   margin:5px;
   word-wrap:normal;
-  background-color: #e8e8e8;
+  background-color: white;
   height: 130px;
 }
 
@@ -103,7 +118,11 @@ footer{
   font-size: 14px;
 }
 
-
+.about_styles{
+  background-color: #e8e8e8;
+  margin: 30px;
+  padding: 40px;
+}
 
 .Go_To_Listings{
   background-color: orange;

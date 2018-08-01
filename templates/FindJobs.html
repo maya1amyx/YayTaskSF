@@ -20,6 +20,10 @@
 
     }
 
+    body{
+      background-color: #e8e8e8;
+    }
+
     </style>
   </head>
 
@@ -27,7 +31,12 @@
 
   <body>
     <header>
-      <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
+      <div class="container_header">
+        <a href="/"><img src="../assets/header.png" alt="header" width=100%></a>
+        <div class="login_bottom_right">
+          <a href="{{url}}">{{ url_text }}</a>
+        </div>
+      </div>
     </header>
 
     <h1 id="font">Find Jobs</h1>
