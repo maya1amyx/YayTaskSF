@@ -46,14 +46,14 @@ class HelpPageHandler(webapp2.RequestHandler):
         url_text = test_login_text()
         url = test_login_url()
         template = jinja_environment.get_template('HelpPage.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(url = url, url_text = url_text))
 
 class PrivacyHandler(webapp2.RequestHandler):
     def get(self):
         url_text = test_login_text()
         url = test_login_url()
         template = jinja_environment.get_template('PrivacyPage.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(url = url, url_text = url_text))
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -81,7 +81,7 @@ class SignUpHandler(webapp2.RequestHandler):
          url_text = test_login_text()
          url = test_login_url()
          template = jinja_environment.get_template('SignUp.html')
-         self.response.out.write(template.render())
+         self.response.out.write(template.render(url = url, url_text = url_text))
 
 class Job(ndb.Model):
     title = ndb.StringProperty()
@@ -131,9 +131,9 @@ class JobPostConfirmHandler(webapp2.RequestHandler):
 
         #https://sites.google.com/site/usfcomputerscience/html
         template = jinja_environment.get_template('JobPostConfirm.html')
-        self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours))
+        self.response.out.write(template.render(title=title, type=type, disc=disc, wage=wage, hours=hours, url = url, url_text = url_text))
 
-        self.create_job_post(title, type, disc, wage, hours, job_id)
+        self.create_job_post(title, type, disc, wage, hours, job_id,)
 
 class FindJobsHandler(webapp2.RequestHandler):
     # def check_for_empty(self):
@@ -166,7 +166,7 @@ class FindJobsHandler(webapp2.RequestHandler):
         url = test_login_url()
 
         template = jinja_environment.get_template('FindJobs.html')
-        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs,))
+        self.response.out.write(template.render(query=query, list_of_jobs=list_of_jobs, url = url, url_text = url_text))
 
 class MoreInfoHandler(webapp2.RequestHandler):
     def get(self):
@@ -180,7 +180,7 @@ class MoreInfoHandler(webapp2.RequestHandler):
         url_text = test_login_text()
         url = test_login_url()
         template = jinja_environment.get_template('morejobinfo.html')
-        self.response.out.write(template.render(id=id))
+        self.response.out.write(template.render(id=id, url = url, url_text = url_text))
         # self.response.out.write(template.render(id=id, query=query))
 
 
